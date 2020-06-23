@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace myPOS.Entities.Common
 {
    public sealed class RoleTypes
