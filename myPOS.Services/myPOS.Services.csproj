@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\myPOS.Data\myPOS.Data.csproj" />
+    <ProjectReference Include="..\myPOS\myPOS.Web.csproj" />
+  </ItemGroup>
+
 </Project>

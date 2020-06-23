@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using myPOS.Entities;
+using myPOS.Entities.Common;
 
 namespace myPOS.Data.Extentions
 {
@@ -13,7 +14,7 @@ namespace myPOS.Data.Extentions
                 .Entity<UserRole>()
                 .HasData(new IdentityRole
                 {
-                    Id = "a5e38752-84ae-4352-a0b6-bf47b3fd460a",
+                    Id = RoleTypes.Administrator,
                     Name = "Administrator",
                     NormalizedName = "ADMINISTRATOR"
                 });
@@ -22,7 +23,7 @@ namespace myPOS.Data.Extentions
               .Entity<UserRole>()
               .HasData(new IdentityRole
               {
-                  Id = "d90e75c6-7da9-490e-aeb0-3d8c4827e193",
+                  Id = RoleTypes.User,
                   Name = "User",
                   NormalizedName = "USER"
               });

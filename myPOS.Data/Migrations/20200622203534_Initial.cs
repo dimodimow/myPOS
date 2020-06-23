@@ -185,17 +185,17 @@ namespace myPOS.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Discriminator", "Name", "NormalizedName" },
-                values: new object[] { "a5e38752-84ae-4352-a0b6-bf47b3fd460a", "1c76241e-307d-42a4-bd6c-1a0742f773b3", "UserRole", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "a5e38752-84ae-4352-a0b6-bf47b3fd460a", "de51172b-b28a-4247-bb14-29a4e698371e", "UserRole", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Discriminator", "Name", "NormalizedName" },
-                values: new object[] { "d90e75c6-7da9-490e-aeb0-3d8c4827e193", "9423639d-f687-4d00-9076-0989f2a36513", "UserRole", "User", "USER" });
+                values: new object[] { "d90e75c6-7da9-490e-aeb0-3d8c4827e193", "baa51d7a-c90f-4746-9247-6aad7c106f9c", "UserRole", "User", "USER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Balance", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "69e7930c-3df5-4261-99cf-0352eb018a91", 0, 0.0, "5a0e9491-e4e3-4667-9f6e-96b6badf4e11", "dimo@administrator.com", false, true, null, "DIMO@ADMINISTRATOR.COM", "DIMO@ADMINISTRATOR.COM", "AQAAAAEAACcQAAAAEJHVLBOb8DFhsg90WswQQhI4FscHUHLNTLGLCV4jihqk20vXw7mPpDiuH73/HDbN5A==", null, false, "7I5VNHIJTSZNOT3KDWKNFUV5PVYBHGXN", false, "dimo@administrator.com" });
+                values: new object[] { "69e7930c-3df5-4261-99cf-0352eb018a91", 0, 0.0, "293b10e6-76b7-4c43-b96e-e61a2b9fcdd4", "dimo@administrator.com", false, true, null, "DIMO@ADMINISTRATOR.COM", "DIMO@ADMINISTRATOR.COM", "AQAAAAEAACcQAAAAELoT8N0uzmm35FxR7TcYTar1MOY28Skp68c35IDrK6ClQBRsfCT8/P8kdUovwCZGGw==", null, false, "7I5VNHIJTSZNOT3KDWKNFUV5PVYBHGXN", false, "dimo@administrator.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

@@ -3,13 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myPOS.Web", "myPOS\myPOS.Web.csproj", "{2BEEA917-DBEB-41AA-9CD3-FA2E275E8D1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myPOS.Web", "myPOS\myPOS.Web.csproj", "{2BEEA917-DBEB-41AA-9CD3-FA2E275E8D1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myPOS.Data", "myPOS.Data\myPOS.Data.csproj", "{DC42304F-D3C0-4C47-BFA7-8E38269A5E1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myPOS.Data", "myPOS.Data\myPOS.Data.csproj", "{DC42304F-D3C0-4C47-BFA7-8E38269A5E1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myPOS.Entities", "myPOS.Entities\myPOS.Entities.csproj", "{6736FC96-67B8-454A-9CB2-FB7A80441D74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myPOS.Entities", "myPOS.Entities\myPOS.Entities.csproj", "{6736FC96-67B8-454A-9CB2-FB7A80441D74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myPOS.Services", "myPOS.Services\myPOS.Services.csproj", "{E21C3B9A-61DE-4BB9-9E95-41C9FE4CB8F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myPOS.Services", "myPOS.Services\myPOS.Services.csproj", "{E21C3B9A-61DE-4BB9-9E95-41C9FE4CB8F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C091C72E-D0EE-4D63-A6A5-6C603E5FCD24}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
