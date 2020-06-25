@@ -1,6 +1,6 @@
 # myPOS
 
-Web app based on ASP.NET Core MVC 3.1 for task management.
+Web app based on ASP.NET Core MVC 3.1
 
 # Project Description
 
@@ -27,7 +27,7 @@ Password: 12345
 
 # Built with
 
-* [ASP.NET](https://dotnet.microsoft.com/apps/aspnet)- Asp.Net Core Mvc
+* [ASP.NET](https://dotnet.microsoft.com/apps/aspnet)- Asp.Net Core Mvc 3.1
 * EntityFrameworkCore
 * MSSQL
 * HTML
