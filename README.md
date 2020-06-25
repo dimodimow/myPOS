@@ -2,6 +2,15 @@
 
 Web app based on ASP.NET Core MVC 3.1 for task management.
 
+# Built with
+
+* [ASP.NET](https://dotnet.microsoft.com/apps/aspnet)- Asp.Net Core Mvc
+* EntityFrameworkCore
+* MSSQL
+* HTML
+* AJAX
+
+
 # Project Description
 
 
@@ -10,6 +19,8 @@ Web app based on ASP.NET Core MVC 3.1 for task management.
 * They can enter a message or write a wish in the form of a comment.
 * Every user can see all transactions made from and to them on their Dashboard. 
 * Each comment has comment, date added, comment type, reminder date
+
+
 
 # Administrator part
 
@@ -23,9 +34,5 @@ Password: 12345
 * The Administrator can Lock and Unlock user accounts.
 ```
 
-# Built With
-* [ASP.NET](https://dotnet.microsoft.com/apps/aspnet)- Asp.Net Core Mvc
-* EntityFrameworkCore
-* MSSQL
-* HTML
-* AJAX
+
+
