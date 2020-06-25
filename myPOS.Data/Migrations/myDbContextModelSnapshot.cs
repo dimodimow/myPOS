@@ -8,7 +8,7 @@ using myPOS.Data.Context;
 
 namespace myPOS.Data.Migrations
 {
-    [DbContext(typeof(myDbContext))]
+    [DbContext(typeof(MyDbContext))]
     partial class myDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

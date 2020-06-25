@@ -9,7 +9,7 @@ using myPOS.Data.Context;
 
 namespace myPOS.Data.Migrations
 {
-    [DbContext(typeof(myDbContext))]
+    [DbContext(typeof(MyDbContext))]
     [Migration("20200622203534_Initial")]
     partial class Initial
     {

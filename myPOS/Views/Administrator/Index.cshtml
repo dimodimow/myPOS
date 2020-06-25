@@ -1,0 +1,59 @@
+﻿@model IEnumerable<UserViewModel>
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<h1>Users</h1>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th> 
+                <th>
+                    @Html.DisplayNameFor(model => model.Balance)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Balance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LockoutEnd)
+                    </td>
+
+                    <td>
+                        @if (item.LockoutEnd != null && item.LockoutEnd < DateTime.UtcNow)
+                        {
+                            <form asp-controller="Administrator" asp-action="LockUser" asp-route-id="@item.Id" method="post">
+                                <button class="btn btn-outline-secondary">Lock</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form asp-controller="Administrator" asp-action="UnlockUser" asp-route-id="@item.Id" method="post">
+                                <button class="btn btn-danger">Unlock</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

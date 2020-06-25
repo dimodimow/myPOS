@@ -5,11 +5,11 @@ using myPOS.Entities;
 
 namespace myPOS.Data.Context
 {
-   public class myDbContext : IdentityDbContext<User>
+   public class MyDbContext : IdentityDbContext<User>
     {
-        public myDbContext() { }
+        public MyDbContext() { }
 
-        public myDbContext(DbContextOptions<myDbContext> options)
+        public MyDbContext(DbContextOptions<MyDbContext> options)
         : base(options) { }
 
         public virtual DbSet<UsersTransactions> UsersTransactions { get; set; }

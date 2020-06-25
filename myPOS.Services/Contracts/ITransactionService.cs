@@ -1,14 +1,13 @@
 ﻿using myPOS.Entities;
-using myPOS.Web.Models;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace myPOS.Services.Contracts
 {
     public interface ITransactionService
     {
-        public Task<UsersTransactions> TranferMoneyAsync(TransactionViewModel transactionViewModel);
-        public Task<ICollection<TransactionViewModel>> ReturnTransactions();
-        public Task<ICollection<TransactionViewModel>> ReturnUserTransactions(string userId);
+        public Task<UsersTransactions> TranferMoneyAsync(string comment, double credits, User userFrom, User userTo);
+        public Task<ICollection<UsersTransactions>> ReturnTransactions(ClaimsPrincipal user);
     }
 }

@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\myPOS.Data\myPOS.Data.csproj" />
-    <ProjectReference Include="..\myPOS\myPOS.Web.csproj" />
+    <ProjectReference Include="..\myPOS.Entities\myPOS.Entities.csproj" />
   </ItemGroup>
 
 </Project>

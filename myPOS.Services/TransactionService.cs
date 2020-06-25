@@ -1,67 +1,54 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using myPOS.Data.Context;
 using myPOS.Entities;
 using myPOS.Services.Contracts;
-using myPOS.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace myPOS.Services
 {
     public class TransactionService : ITransactionService
     {
-        private readonly myDbContext _context;
-        public TransactionService(myDbContext context)
+        private readonly MyDbContext _context;
+        private readonly UserManager<User> _userManager;
+        public TransactionService(MyDbContext context, UserManager<User> userManager)
         {
             this._context = context;
+            this._userManager = userManager;
         }
 
-        public async Task<ICollection<TransactionViewModel>> ReturnTransactions()
+        public async Task<ICollection<UsersTransactions>> ReturnTransactions(ClaimsPrincipal user)
         {
-            var query = await this._context.UsersTransactions.Include(x => x.UserFrom).Include(x => x.UserTo).
-                Select(x => new TransactionViewModel()
+            var loggedUser = await _userManager.GetUserAsync(user);
+            if (loggedUser != null)
+            {
+
+                var isAdmin = await _userManager.IsInRoleAsync(loggedUser, "Administrator");
+
+                if (isAdmin)
                 {
-                    Comment = x.Comment,
-                    PhoneNumber = x.UserTo.PhoneNumber,
-                    TransactionFrom = x.UserFrom,
-                    TransactionTo = x.UserTo,
-                    Credits = x.TransactionAmount,
-                    Id = x.Id
-                })
-                .ToListAsync();
+                    return await _context.UsersTransactions.Include(x => x.UserFrom).Include(x => x.UserTo).ToListAsync();
+                }
 
-            return query;
+                return await _context.UsersTransactions.Include(x => x.UserFrom).Include(x => x.UserTo).Where(x => x.UserFrom == loggedUser || x.UserTo == loggedUser).ToListAsync();
+            }
+            return null;
         }
-
-        public async Task<ICollection<TransactionViewModel>> ReturnUserTransactions(string userId)
+        public async Task<UsersTransactions> TranferMoneyAsync(string comment, double credits, User userFrom, User userTo)
         {
-            var query = await this._context.UsersTransactions.Include(x => x.UserFrom).Include(x => x.UserTo).Where(x => x.UserToId == userId).
-               Select(x => new TransactionViewModel() { Comment = x.Comment,
-                   PhoneNumber = x.UserTo.PhoneNumber,
-                   TransactionFrom = x.UserFrom,
-                   TransactionTo = x.UserTo,
-                   Credits = x.TransactionAmount,
-                   Id = x.Id }).ToListAsync();
-
-            return query;
-        }
-
-        public async Task<UsersTransactions> TranferMoneyAsync(TransactionViewModel transactionViewModel)
-        {
-            var userFrom = transactionViewModel.TransactionFrom;
-            var userTo = transactionViewModel.TransactionTo;
-
-            userFrom.Balance -= transactionViewModel.Credits;
-            userTo.Balance += transactionViewModel.Credits;
+            userFrom.Balance -= credits;
+            userTo.Balance += credits;
             var transaction = new UsersTransactions
             {
                 Id = new Guid(),
-                Comment = transactionViewModel.Comment,
-                TransactionAmount = transactionViewModel.Credits,
-                UserFrom = transactionViewModel.TransactionFrom,
-                UserTo = transactionViewModel.TransactionTo
+                Comment = comment,
+                TransactionAmount = credits,
+                UserFrom = userFrom,
+                UserTo = userTo
             };
             this._context.Update(userFrom);
             this._context.Update(userTo);

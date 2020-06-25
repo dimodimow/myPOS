@@ -10,6 +10,11 @@ using myPOS.Data.Context;
 using myPOS.Entities;
 using myPOS.Web.RoleManager.Contract;
 using myPOS.Web.RoleManager;
+using myPOS.Web.Mappers.Contracts;
+using myPOS.Web.Models;
+using myPOS.Web.Mappers;
+using myPOS.Services.Contracts;
+using myPOS.Services;
 
 namespace myPOS
 {
@@ -25,16 +30,20 @@ namespace myPOS
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<myDbContext>(options =>
+            services.AddDbContext<MyDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<User, UserRole>()
-                .AddEntityFrameworkStores<myDbContext>();
+                .AddEntityFrameworkStores<MyDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
 
             services.AddScoped<IRoleManager, RoleManager>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ITransactionService, TransactionService>();
 
+            services.AddSingleton<IMapper<TransactionViewModel, UsersTransactions>, UserTransactionMapper>();
+            services.AddSingleton<IMapper<UserViewModel, User>, UserMapper>();
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = false;

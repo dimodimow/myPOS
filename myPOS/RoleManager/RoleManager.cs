@@ -5,8 +5,8 @@ namespace myPOS.Web.RoleManager
 {
     public class RoleManager : IRoleManager
     {
-        private readonly myDbContext _context;
-        public RoleManager(myDbContext context)
+        private readonly MyDbContext _context;
+        public RoleManager(MyDbContext context)
         {
             this._context = context;
         }
