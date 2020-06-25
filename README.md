@@ -2,15 +2,6 @@
 
 Web app based on ASP.NET Core MVC 3.1 for task management.
 
-# Built with
-
-* [ASP.NET](https://dotnet.microsoft.com/apps/aspnet)- Asp.Net Core Mvc
-* EntityFrameworkCore
-* MSSQL
-* HTML
-* AJAX
-
-
 # Project Description
 
 
@@ -32,7 +23,12 @@ Password: 12345
 * Administrator can see all transactions on his Dashboard. 
 * The Administrator have access to a page with all registered users and their respective credits.
 * The Administrator can Lock and Unlock user accounts.
-```
 
 
+# Built with
 
+* [ASP.NET](https://dotnet.microsoft.com/apps/aspnet)- Asp.Net Core Mvc
+* EntityFrameworkCore
+* MSSQL
+* HTML
+* AJAX
