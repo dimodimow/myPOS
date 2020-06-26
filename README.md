@@ -9,7 +9,6 @@ Web app based on ASP.NET Core MVC 3.1
 * User can  send credits to another user via filling the recipient’s mobile number.
 * They can enter a message or write a wish in the form of a comment.
 * Every user can see all transactions made from and to them on their Dashboard. 
-* Each comment has comment, date added, comment type, reminder date
 
 
 
