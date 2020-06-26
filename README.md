@@ -31,4 +31,3 @@ Password: 12345
 * EntityFrameworkCore
 * MSSQL
 * HTML
-* AJAX
