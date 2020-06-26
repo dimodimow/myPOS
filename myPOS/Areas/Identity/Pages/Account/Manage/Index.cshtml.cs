@@ -35,6 +35,7 @@ namespace myPOS.Web.Areas.Identity.Pages.Account.Manage
         {
             [Phone]
             [Display(Name = "Phone number")]
+            [StringLength(10, ErrorMessage = "The phone number must be 10 numbers", MinimumLength = 10)]
             public string PhoneNumber { get; set; }
         }
 

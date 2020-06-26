@@ -12,10 +12,11 @@ namespace myPOS.Web.Mappers
             {
                 Id = entity.Id,
                 Comment = entity.Comment,
-                Credits = entity.UserFrom.Balance,
+                Credits = entity.TransactionAmount,
                 CreatedOn = entity.CreatedOn,
-                PhoneNumber = entity.UserFrom.PhoneNumber,
+                Phone = entity.UserTo.PhoneNumber,
                 TransactionFrom = entity.UserFrom,
+                TransactionFromId = entity.UserFromId,
                 TransactionTo = entity.UserTo,
             };
         }

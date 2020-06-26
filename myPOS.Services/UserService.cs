@@ -53,6 +53,5 @@ namespace myPOS.Services
 
             return users;
         }
-
     }
 }

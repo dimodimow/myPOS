@@ -7,7 +7,7 @@ namespace myPOS.Services.Contracts
 {
     public interface ITransactionService
     {
-        public Task<UsersTransactions> TranferMoneyAsync(string comment, double credits, User userFrom, User userTo);
+        public Task<UsersTransactions> SendAsync(string comment, double credits, string phone, string username);
         public Task<ICollection<UsersTransactions>> ReturnTransactions(ClaimsPrincipal user);
     }
 }

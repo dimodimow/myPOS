@@ -7,57 +7,57 @@
     ViewData["Title"] = "Home Page";
 }
 
+<div class="col col-sm-2 text-left ">
+    <p>
+        <a class="btn btn-outline-primary" title="Send Credits" asp-controller="Home" asp-action="Send"><i class="fas fa-book"></i><b> Send</b></a>
+    </p>
+</div>
+
 @if (User.Identity.IsAuthenticated)
 {
     <div class="row">
         <div class="col-md-12">
             <div class="shadow p-3 mb-5 bg-white rounded">
-                <table class="table table-striped table-hover" >
+                <table class="table table-striped table-hover">
                     <thead>
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.Credits)
-                            </th>
-                            <th>
                                 @Html.DisplayNameFor(model => model.TransactionFrom)
-                            </th>   
+                            </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.TransactionTo)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.PhoneNumber)
+                                @Html.DisplayNameFor(model => model.Credits)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Phone)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.Comment)
-                            </th>
-                            <th>
-                                Time Created
-                            </th>
+                            </th> 
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Credits)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TransactionFrom.NormalizedUserName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TransactionTo.UserName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PhoneNumber)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Comment)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CreatedOn)
-                            </td>
-                        </tr>       
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TransactionFrom.UserName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TransactionTo.UserName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Credits)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Comment)
+                                </td>
+                            </tr>
                         }
                     </tbody>
                 </table>

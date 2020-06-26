@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using myPOS.Entities;
@@ -15,15 +17,18 @@ namespace myPOS.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ITransactionService _transactionService;
+        private readonly UserManager<User> _userManager;
         private readonly IMapper<TransactionViewModel, UsersTransactions> _transactionMapper;
 
-        public HomeController(ILogger<HomeController> logger, ITransactionService transactionService, IMapper<TransactionViewModel, UsersTransactions> transactionMapper)
+        public HomeController(ILogger<HomeController> logger, UserManager<User> _userManager, ITransactionService transactionService, IMapper<TransactionViewModel, UsersTransactions> transactionMapper)
         {
             _logger = logger;
+            this._userManager = _userManager;
             this._transactionService = transactionService;
             this._transactionMapper = transactionMapper;
         }
 
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var transactions = await this._transactionService.ReturnTransactions(User);
@@ -48,6 +53,25 @@ namespace myPOS.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Send(double credits, string phone, string comment)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
+            var userFromId = User.Identity.Name;
+            await this._transactionService.SendAsync(comment, credits, phone, userFromId);
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Send()
+        {
+            return View();
         }
     }
 }

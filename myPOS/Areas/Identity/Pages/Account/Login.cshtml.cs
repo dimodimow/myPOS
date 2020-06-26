@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using myPOS.Entities;
+using myPOS.Data.Context;
 
 namespace myPOS.Web.Areas.Identity.Pages.Account
 {
@@ -24,7 +25,7 @@ namespace myPOS.Web.Areas.Identity.Pages.Account
 
         public LoginModel(SignInManager<User> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<User> userManager)
+            UserManager<User> userManager         )
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -80,6 +81,7 @@ namespace myPOS.Web.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+            
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {

@@ -10,7 +10,7 @@ using myPOS.Data.Context;
 namespace myPOS.Data.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20200622203534_Initial")]
+    [Migration("20200626202347_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -105,12 +105,10 @@ namespace myPOS.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -154,12 +152,10 @@ namespace myPOS.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -242,13 +238,13 @@ namespace myPOS.Data.Migrations
                             Id = "69e7930c-3df5-4261-99cf-0352eb018a91",
                             AccessFailedCount = 0,
                             Balance = 0.0,
-                            ConcurrencyStamp = "293b10e6-76b7-4c43-b96e-e61a2b9fcdd4",
+                            ConcurrencyStamp = "a816f5c8-016f-4e87-befc-eacb1b33f252",
                             Email = "dimo@administrator.com",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NormalizedEmail = "DIMO@ADMINISTRATOR.COM",
                             NormalizedUserName = "DIMO@ADMINISTRATOR.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELoT8N0uzmm35FxR7TcYTar1MOY28Skp68c35IDrK6ClQBRsfCT8/P8kdUovwCZGGw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGG8o6rE2nuIyNDBHeq2ftjgviDg15J8T9O/+dr3mqC4YWyv6AnpZVEfNDCZnY5IGQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "7I5VNHIJTSZNOT3KDWKNFUV5PVYBHGXN",
                             TwoFactorEnabled = false,
@@ -296,14 +292,14 @@ namespace myPOS.Data.Migrations
                         new
                         {
                             Id = "a5e38752-84ae-4352-a0b6-bf47b3fd460a",
-                            ConcurrencyStamp = "de51172b-b28a-4247-bb14-29a4e698371e",
+                            ConcurrencyStamp = "82957307-d91d-44ef-ae17-d92e13b6b738",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "d90e75c6-7da9-490e-aeb0-3d8c4827e193",
-                            ConcurrencyStamp = "baa51d7a-c90f-4746-9247-6aad7c106f9c",
+                            ConcurrencyStamp = "0362d16b-b9e8-4899-93cc-0121ae984d82",
                             Name = "User",
                             NormalizedName = "USER"
                         });

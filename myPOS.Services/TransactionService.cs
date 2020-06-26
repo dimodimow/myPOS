@@ -38,8 +38,26 @@ namespace myPOS.Services
             }
             return null;
         }
-        public async Task<UsersTransactions> TranferMoneyAsync(string comment, double credits, User userFrom, User userTo)
-        {
+        public async Task<UsersTransactions> SendAsync(string comment, double credits, string phone, string username)
+        {   
+            var userTo = _context.Users.FirstOrDefault(x => x.PhoneNumber == phone);
+            var userFrom = _context.Users.FirstOrDefault(x => x.UserName == username);
+
+            if (userTo == null)
+            {
+                throw new ArgumentNullException("User with this phone number does not exist.");
+            }
+
+            if (userFrom.Balance < credits)
+            {
+                throw new ArgumentException("Insufficient amount");
+            }
+
+            if (string.IsNullOrWhiteSpace(phone))
+            {
+                throw new ArgumentException("Phone can not be null");
+            }
+
             userFrom.Balance -= credits;
             userTo.Balance += credits;
             var transaction = new UsersTransactions

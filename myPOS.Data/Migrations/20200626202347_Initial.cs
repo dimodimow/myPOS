@@ -94,8 +94,8 @@ namespace myPOS.Data.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: false)
                 },
@@ -139,8 +139,8 @@ namespace myPOS.Data.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    Name = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
                     Value = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -185,17 +185,17 @@ namespace myPOS.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Discriminator", "Name", "NormalizedName" },
-                values: new object[] { "a5e38752-84ae-4352-a0b6-bf47b3fd460a", "de51172b-b28a-4247-bb14-29a4e698371e", "UserRole", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "a5e38752-84ae-4352-a0b6-bf47b3fd460a", "82957307-d91d-44ef-ae17-d92e13b6b738", "UserRole", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Discriminator", "Name", "NormalizedName" },
-                values: new object[] { "d90e75c6-7da9-490e-aeb0-3d8c4827e193", "baa51d7a-c90f-4746-9247-6aad7c106f9c", "UserRole", "User", "USER" });
+                values: new object[] { "d90e75c6-7da9-490e-aeb0-3d8c4827e193", "0362d16b-b9e8-4899-93cc-0121ae984d82", "UserRole", "User", "USER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Balance", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "69e7930c-3df5-4261-99cf-0352eb018a91", 0, 0.0, "293b10e6-76b7-4c43-b96e-e61a2b9fcdd4", "dimo@administrator.com", false, true, null, "DIMO@ADMINISTRATOR.COM", "DIMO@ADMINISTRATOR.COM", "AQAAAAEAACcQAAAAELoT8N0uzmm35FxR7TcYTar1MOY28Skp68c35IDrK6ClQBRsfCT8/P8kdUovwCZGGw==", null, false, "7I5VNHIJTSZNOT3KDWKNFUV5PVYBHGXN", false, "dimo@administrator.com" });
+                values: new object[] { "69e7930c-3df5-4261-99cf-0352eb018a91", 0, 0.0, "a816f5c8-016f-4e87-befc-eacb1b33f252", "dimo@administrator.com", false, true, null, "DIMO@ADMINISTRATOR.COM", "DIMO@ADMINISTRATOR.COM", "AQAAAAEAACcQAAAAEGG8o6rE2nuIyNDBHeq2ftjgviDg15J8T9O/+dr3mqC4YWyv6AnpZVEfNDCZnY5IGQ==", null, false, "7I5VNHIJTSZNOT3KDWKNFUV5PVYBHGXN", false, "dimo@administrator.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

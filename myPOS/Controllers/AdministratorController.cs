@@ -37,7 +37,7 @@ namespace myPOS.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator, Librarian")]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> LockUser(string id)
         {
             if (this.ModelState.IsValid)
@@ -50,7 +50,7 @@ namespace myPOS.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator, Librarian")]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> UnlockUser(string id)
         {
             if (this.ModelState.IsValid)
